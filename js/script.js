@@ -1,6 +1,6 @@
 'use strict';
 
-const operation = prompt('Please select the operation (add, sub, mult, div):');
+let operation = prompt('Please select the operation (add, sub, mult, div):');
 const num1 = Number(prompt('Please enter the first number'));
 const num2 = Number(prompt('Please enter the second number'));
 let symbols = new Map([
