@@ -1,6 +1,40 @@
 'use strict';
+const year = +prompt('Please enter your year of birth');
+let city = prompt('Pleace enter the name of the city in which you live');
+const sport = prompt('Please enter your favorite sport');
 
-(function () {
+
+let message = `You are ${2024 - year} years old; \n`;
+
+switch (sport) {
+    case 'football':
+        message += `It's cool! Do you want to become like Cristiano Ronaldo \n`;
+        break;
+    case 'basketball':
+        message += `It's cool! Do you want to become like LeBron James \n`;
+        break;
+    case 'golf':
+        message += `It's cool! Do you want to become like Scottie Scheffler \n`;
+        break;
+    default:
+        message += (`${sport} is cool! Keep going! \n`);
+}
+switch (city) {
+    case 'kyiv':
+        message += `You live in the capital city of Ukraine \n`;
+        break;
+    case 'london':
+        message += `You live in the capital city of England \n`;
+        break;
+    case 'washington':
+        message += `You live in the capital city of USA \n`;
+        break;
+    default:
+        message += (`You live in  ${city}; \n`);
+}
+alert(message)
+
+/*(function () {
     const year = +prompt('Please enter your year of birth');
     if (year === 0) {
         alert('Unfortunately, you did not want to enter your year of birth');
@@ -55,7 +89,7 @@
     }
 
     alert(message)
-})()
+})()*/
 
 
 
