@@ -1,6 +1,6 @@
 'use strict';
 const year = +prompt('Please enter your year of birth');
-let city = prompt('Pleace enter the name of the city in which you live');
+const city = prompt('Pleace enter the name of the city in which you live');
 const sport = prompt('Please enter your favorite sport');
 
 
