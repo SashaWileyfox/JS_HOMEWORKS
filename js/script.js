@@ -17,7 +17,7 @@ for (let a = 10; a <= 100; a += 10) {
 
 //task #3
 console.log(`${task}3`)
-let number = +prompt('Please enter the number');
+const number = +prompt('Please enter the number');
 let arr1 = [];
 
 for (let a = 1; a <= 100; a++) {
