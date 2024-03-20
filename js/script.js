@@ -10,12 +10,6 @@ const foo = function (arr = []) {
         if (arr[a] > 0) fooArr.push(arr[a]);
     }
 
-    if (fooArr.length > 0) {
-        return fooArr.join(', ')
-    } else {
-        return 'Empty array'
-    }
-
-
+    fooArr.length > 0 ? return fooArr.join(', ') :return 'Empty array';
 }
 console.log(foo(arr));
