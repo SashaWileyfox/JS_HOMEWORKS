@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test",
-    "format": "prettier --write \"js/**/*.js\""
+    "test": "test"
   },
   "keywords": [
     "Hello"
