@@ -56,7 +56,7 @@ const users = [
 ];
 
 console.log(
-  users.reduce(function (acc, item) {
+  users.reduce((acc, item) => {
     const toNumber = Number(item.balance.replace(/[$,]/g, ''));
     if (toNumber > 2000) {
       acc.push({
