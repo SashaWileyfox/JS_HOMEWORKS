@@ -18,6 +18,6 @@ console.log(degree(2, 1));
 console.log(`${task}sum`);
 const sum = ((a, b) => {
   if (a === 0) return b;
-  return sum(a - 1, b + 1);
+  return sum(a - 1, ++b);
 });
 console.log(sum(2, 2));
