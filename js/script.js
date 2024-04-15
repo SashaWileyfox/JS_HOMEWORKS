@@ -28,9 +28,7 @@ if (isNaN(num1)) {
             result = num1 / num2;
         }
     }
-
 }
-
 alert(`${num1} ${symbol} ${num2} = ${result}`);
 
 
