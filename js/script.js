@@ -18,7 +18,6 @@ if (isNaN(num1)) {
     if (isNaN(num2)) {
         alert('Invalid second number. Please enter a valid number.');
     } else {
-
         if (operation === 'add') {
             result = num1 + num2;
         } else if (operation === 'sub') {
