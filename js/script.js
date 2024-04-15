@@ -3,7 +3,11 @@ const complexArray = [
   [5, [6, [7, [8, 9]]]],
   [[10, 11], 12, 13]];
 const flat = function (arr) {
-  if (arguments.length > 1) throw new Error('Function accepts only 1 argument, too much arguments provided');
+  if (arguments.length > 1) {
+    throw new Error(
+      'Function accepts only 1 argument, too much arguments provided',
+    );
+  }
   const res = [];
   for (let i = 0; i < arr.length; i++) {
     if (!Array.isArray(arr[i])) {
