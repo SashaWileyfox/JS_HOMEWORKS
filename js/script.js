@@ -6,15 +6,16 @@ const user2 = {
   name: 'Olha',
   age: 29,
 };
-const getAge = function (prefix = 'age:') {
+const getAgeOrName = function (prefix = 'age:') {
   return prefix + ' ' + this;
 };
-console.log(getAge.apply(user.age));
-console.log(getAge.apply(user2.name, ['name:']));
+console.log(getAgeOrName.apply(user.age));
+console.log(getAgeOrName.apply(user2.name, ['name:']));
 
 console.log('---------------myApply');
-const myApply = function (arr, prefix = 'age:') {
-  return prefix + ' ' + arr;
+
+const myApply = function (context = this, prefix = ['age:']) {
+  return prefix + ' ' + context;
 };
 console.log(myApply(user.age));
-console.log(myApply(user.name, 'name:'));
+console.log(myApply(user.name, ['name:']));
