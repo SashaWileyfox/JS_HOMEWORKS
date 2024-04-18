@@ -16,7 +16,6 @@ console.log(fixValue('!'));
 console.log(fixValue2('.'));
 
 console.log('---------------myBind');
-const myBind = function(arr, hello, punctuation){
+const myBind = function (arr, hello, punctuation) {
   return hello + ' ' + this + punctuation;
-
-}
+};
