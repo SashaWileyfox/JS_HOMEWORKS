@@ -16,6 +16,19 @@ console.log(fixValue('!'));
 console.log(fixValue2('.'));
 
 console.log('---------------myBind');
-const myBind = function (arr, hello, punctuation) {
+
+const myBind = function (func, context, ...args) {
+  return function (...newArgs) {
+    return func.call(context, ...args, ...newArgs);
+  };
+};
+
+const split = function (hello, punctuation) {
   return hello + ' ' + this + punctuation;
 };
+
+const getHelloNameMyBind = myBind(split, user.name, 'Привіт');
+const getHelloNameMyBind2 = myBind(split, user2.name, 'Привіт');
+
+console.log(getHelloNameMyBind('!'));
+console.log(getHelloNameMyBind2('.'));
