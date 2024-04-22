@@ -15,11 +15,11 @@ console.log(getAgeOrName.apply(user.name, ['name:']));
 console.log('---------------myApply');
 const get = function () {
   return {
-    apply(context = this, prefix = ['age:']) {
+    myApply(context = this, prefix = ['age:']) {
       return prefix + ' ' + context;
     },
   };
 };
 const getting = get();
-console.log(getting.apply(user2.age));
-console.log(getting.apply(user2.name, ['name:']));
+console.log(getting.myApply(user2.age));
+console.log(getting.myApply(user2.name, ['name:']));
