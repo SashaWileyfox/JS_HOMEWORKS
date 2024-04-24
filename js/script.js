@@ -1,4 +1,4 @@
-const sum = () => {
+const sum = (function () {
   let counter = 0;
   return {
     getValue(num) {
@@ -6,8 +6,8 @@ const sum = () => {
       return counter;
     },
   };
-};
-const result = sum(0);
+});
+const result = sum();
 
 console.log(result.getValue(5));
 console.log(result.getValue(3));
