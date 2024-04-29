@@ -10,4 +10,3 @@ for (const element of list) {
   }
 }
 console.log('amount of elements:', count);
-console.log(arr);
