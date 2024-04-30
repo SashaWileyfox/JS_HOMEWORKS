@@ -12,7 +12,7 @@
     "func-names": "off",
     "no-console": 0,
     "no-plusplus": "off",
+    "no-restricted-syntax": "off",
     "wrap-iife": "off"
-
   }
 }
