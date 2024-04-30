@@ -12,6 +12,7 @@
     "func-names": "off",
     "no-console": 0,
     "no-plusplus": "off",
-    "prefer-template": "off"
+    "prefer-template": "off",
+    "wrap-iife": "off"
   }
 }
