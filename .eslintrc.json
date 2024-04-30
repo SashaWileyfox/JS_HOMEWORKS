@@ -11,6 +11,8 @@
   "rules": {
     "func-names": "off",
     "no-console": 0,
-    "no-plusplus": "off"
+    "no-plusplus": "off",
+    "wrap-iife": "off"
+
   }
 }
