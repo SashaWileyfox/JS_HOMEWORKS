@@ -8,7 +8,7 @@
       const listItem = document.createElement('li');
       const node = document.createTextNode(arr[i]);
 
-      listItem.append(node);
+      listItem.appendChild(node);
       list.appendChild(listItem);
 
       if (Array.isArray(arr[i])) {
