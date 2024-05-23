@@ -7,7 +7,7 @@
   const handler = (event) => {
     event.stopPropagation();
     event.preventDefault();
-    window.location.href = '../list.html';
+    window.location.href = 'list.html';
 
     allElements.forEach((element) => {
       formData[element.name] = element.value;
