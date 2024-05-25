@@ -1,4 +1,4 @@
-(function() {
+(function () {
   const buttons = document.querySelectorAll('[data-button]');
 
   buttons.forEach((button, index) => {
@@ -13,14 +13,9 @@
     event.target.parentElement.style.display = 'none';
 
     if (clickedButton.textContent === 'Add to favorites') {
-      localStorage.setItem(
-        clickedButton.id,
-        JSON.stringify('Add')
-      );
+      localStorage.setItem(clickedButton.id, JSON.stringify('Add'));
     } else {
-      localStorage.setItem(
-        clickedButton.id,
-        JSON.stringify('Delete'));
+      localStorage.setItem(clickedButton.id, JSON.stringify('Delete'));
     }
   };
   const refresh = (event) => {
