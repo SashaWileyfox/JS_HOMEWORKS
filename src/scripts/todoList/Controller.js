@@ -1,6 +1,6 @@
+// працює з підготовкою даних до збереження та до рендеру, на дом дерево безпосередньо не впливає але може вішаи подію, події не впливають на перерендер сторінки
 import Model from './Model.js';
 import View from './View.js';
-/* global bootstrap */
 
 const Controller = {
   _formSelector: null,
@@ -77,10 +77,11 @@ const Controller = {
     const btn = target.closest('[data-btn="info"]');
     if (!btn) return;
 
-    const infoWindow = document.querySelector('#offcanvasExample');
+    const todoItemId = Number(btn.closest('[data-id]')
+      .getAttribute('data-id'));
+    const todoItemData = Model.getById(todoItemId);
 
-    this.offCanvas = new bootstrap.Offcanvas(infoWindow);
-    this.offCanvas.show();
+    View.showInfo(todoItemData);
   },
 
   validateSelector(selector) {

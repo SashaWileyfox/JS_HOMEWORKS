@@ -1,17 +1,21 @@
-// відображення елементів
-/* global bootstrap */
-
 const View = {
   _formSelector: null,
   _todosContainerSelector: null,
   _formElement: null,
   _todosContainerElement: null,
   offCanvas: null,
-  /* showInfo(id, title, description) {
+  showInfo({
+    id,
+    title,
+    description,
+  }) {
+    this.offCanvas._element.querySelector('.title').innerHTML = `${title} #${id}`;
+    this.offCanvas._element.querySelector('.description').innerHTML = description;
     this.offCanvas.show();
-  }, */
-  removeItem(id){
-    this.todosContainerElement.querySelector(`[data-id="${id}"]`).remove();
+  },
+  removeItem(id) {
+    this.todosContainerElement.querySelector(`[data-id="${id}"]`)
+      .remove();
   },
   renderItem(data) {
     const layout = this.createTemplate(data);
@@ -22,7 +26,11 @@ const View = {
     this.formElement.reset();
   },
 
-  createTemplate({ title, description, id }) {
+  createTemplate({
+    title,
+    description,
+    id,
+  }) {
     const wrap = document.createElement('div');
     wrap.classList.add('col-4');
     wrap.setAttribute('data-id', id);
@@ -41,7 +49,10 @@ const View = {
     return wrap;
   },
 
-  init({ form, todosContainer }) {
+  init({
+    form,
+    todosContainer,
+  }) {
     this.formSelector = form;
     this.todosContainerSelector = todosContainer;
 
