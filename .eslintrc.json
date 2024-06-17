@@ -13,6 +13,8 @@
     "no-console": 0,
     "no-plusplus": "off",
     "no-restricted-syntax": "off",
-    "wrap-iife": "off"
+    "wrap-iife": "off",
+    "max-len": "off",
+    "no-underscore-dangle": "off"
   }
 }
