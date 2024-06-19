@@ -1,4 +1,4 @@
-import { currentDate } from './constants.js';
+import View from './View.js';
 
 function Student(name, surname, yearOfBirth, grades = []) {
   this.name = name;
@@ -13,6 +13,7 @@ function Student(name, surname, yearOfBirth, grades = []) {
     return `${name} ${surname}`;
   };
   Student.prototype.getAge = function () {
+    const currentDate = new Date();
     return `${currentDate.getFullYear() - yearOfBirth} years old`;
   };
 

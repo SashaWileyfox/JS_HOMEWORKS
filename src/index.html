@@ -1,19 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-  </head>
-  <body>
-    <script src="../src/js/index.js" type="module"></script>
-    <script src="../src/js/Student.js" type="module"></script>
-    <script src="../src/js/constants.js" type="module"></script>
+<head>
+  <meta charset="UTF-8" />
+  <title>Title</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap-icons/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">FullName</th>
+      <th scope="col">Age</th>
+      <th scope="col">Average grades</th>
+      <th scope="col">Attendance</th>
+      <th scope="col">Average attendance</th>
+      <th scope="col">Result</th>
+    </tr>
+    </thead>
+    <tbody class="table-group-divider" data-tbody>
+    </tbody>
+  </table>
+</div>
 
-  </body>
+<script src="../src/js/index.js" type="module"></script>
+<script src="../src/js/Student.js" type="module"></script>
+<script src="../src/js/View.js" type="module"></script>
+</body>
 </html>
