@@ -30,7 +30,6 @@ function Student(name, surname, yearOfBirth, grades = []) {
     } else {
       throw new Error('The academic year is over');
     }
-    this.accAbsent++;
   };
 
   Student.prototype.getAverageGrades = function () {
