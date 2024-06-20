@@ -1,5 +1,3 @@
-import View from './View.js';
-
 function Student(name, surname, yearOfBirth, grades = []) {
   this.name = name;
   this.surname = surname;
@@ -7,10 +5,11 @@ function Student(name, surname, yearOfBirth, grades = []) {
   this.grades = grades;
 
   this.attendance = [];
+
   this.accPresent = 0;
 
   Student.prototype.getFullName = function () {
-    return `${name} ${surname}`;
+    return `${this.name} ${this.surname}`;
   };
   Student.prototype.getAge = function () {
     const currentDate = new Date();
@@ -22,14 +21,14 @@ function Student(name, surname, yearOfBirth, grades = []) {
       this.attendance.push(true);
       this.accPresent++;
     } else {
-      throw new Error('The academic year is over');
+      throw new Error(`The academic year for ${this.getFullName()} is over`);
     }
   };
   Student.prototype.absent = function () {
     if (this.attendance.length <= 25 - 1) {
       this.attendance.push(false);
     } else {
-      throw new Error('The academic year is over');
+      throw new Error(`The academic year for ${this.getFullName()} is over`);
     }
   };
 
@@ -40,12 +39,15 @@ function Student(name, surname, yearOfBirth, grades = []) {
   Student.prototype.getAverageAttendance = function () {
     return this.accPresent / 25;
   };
+
   Student.prototype.summary = function () {
     if (this.getAverageGrades() >= 90 && this.getAverageAttendance() >= 0.9) {
       return 'Well done!';
-    } if (this.getAverageGrades() < 90 && this.getAverageAttendance() >= 0.9) {
+    }
+    if (this.getAverageGrades() < 90 && this.getAverageAttendance() >= 0.9) {
       return 'Good but you can better!';
-    } if (this.getAverageGrades() >= 90 && this.getAverageAttendance() < 0.9) {
+    }
+    if (this.getAverageGrades() >= 90 && this.getAverageAttendance() < 0.9) {
       return 'Good but you can better!';
     }
     return 'You are radish!';
