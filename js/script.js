@@ -1,4 +1,4 @@
-(function f() {
+(function () {
   const button = document.body.querySelector('[data-button]');
   const postContainer = document.body.querySelector('[data-post-container]');
 
