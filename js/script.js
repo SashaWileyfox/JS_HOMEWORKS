@@ -37,14 +37,16 @@
 
       if (post) {
         postContainer.innerHTML = `
-          <h2>${post.title}</h2>
-          <h4>User ID: ${post.userId}</h4>
-          <p>${post.body}</p>
+          <div class="card-body">
+            <h2>${post.title}</h2>
+            <h5>User ID: ${post.userId}</h5>
+            <p>${post.body}</p>
+            <button class="btn btn-primary" data-comments-button>Get a comments</button>
+          </div>
         `;
-        const commentButton = document.createElement('button');
-        commentButton.textContent = 'Get a comments';
+        postContainer.classList.add('card');
+        const commentButton = document.querySelector('[data-comments-button]');
         commentButton.addEventListener('click', () => getComments(post.id));
-        postContainer.appendChild(commentButton);
       } else {
         throw new Error('No post with this ID was found.');
       }
