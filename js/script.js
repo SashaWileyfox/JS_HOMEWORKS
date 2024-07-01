@@ -1,8 +1,6 @@
 (function () {
-  const buttonGetPost = document.body.querySelector('[data-button-get-post]');
-  const postContainer = document.body.querySelector('[data-post-container]');
-  let commentButton;
-  let commentButtonInitialized = false;
+  const postContainer = document.querySelector('[data-post-container]');
+  const input = document.querySelector('[data-input]');
 
   const getComments = async (postId) => {
     try {
@@ -32,22 +30,17 @@
         <h2>${post.title}</h2>
         <h5>User ID: ${post.userId}</h5>
         <p>${post.body}</p>
-        <button class="btn btn-primary" data-comments-button>Get Comments</button>
+        <button class="btn btn-primary" data-comments-button data-post-id="${post.id}">Get Comments</button>
       </div>
     `;
     postContainer.classList.add('card');
-    commentButton = document.querySelector('[data-comments-button]');
-    if (commentButton && !commentButtonInitialized) {
-      commentButton.addEventListener('click', () => getComments(post.id));
-      commentButtonInitialized = true;
-    }
   };
 
   const handleError = (error) => {
     postContainer.innerHTML = `<p>${error.message}</p>`;
   };
 
-  const handlePostDisplayButtonClick = async () => {
+  const handlePostDisplay = async () => {
     const inputValue = document.getElementById('input-id').value;
     const postId = Number(inputValue);
 
@@ -67,5 +60,14 @@
     }
   };
 
-  buttonGetPost.addEventListener('click', handlePostDisplayButtonClick);
+  const handleCommentButtonClick = (event) => {
+    const commentButton = event.target.closest('[data-comments-button]');
+    if (commentButton) {
+      const postId = commentButton.getAttribute('data-post-id');
+      getComments(postId);
+    }
+  };
+
+  input.addEventListener('input', handlePostDisplay);
+  postContainer.addEventListener('click', handleCommentButtonClick);
 })();
