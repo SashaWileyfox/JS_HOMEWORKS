@@ -7,20 +7,20 @@
       const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`);
       if (!response.ok) throw new Error('Network response was not ok');
       const comments = await response.json();
-      console.log('Коментарі:', comments);
+      console.log('Comments:', comments);
     } catch (error) {
-      console.error('Помилка при отриманні коментарів:', error);
+      console.error(`Error receiving comments:, ${error.message}`);
     }
   };
 
   const getPost = async (postId) => {
     try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/todos');
-      if (!response.ok) throw new Error('Network response was not ok');
+      const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+      if (!response.ok) throw new Error('Server responded with an error');
       const data = await response.json();
       return data.find((item) => item.id === postId);
     } catch (error) {
-      console.error('Помилка при отриманні поста:', error);
+      throw new Error(`Error while receiving the post: + ${error.message}`);
     }
   };
 
@@ -30,7 +30,7 @@
       const postId = Number(inputValue);
 
       if (isNaN(postId) || postId <= 0 || postId > 100) {
-        throw new Error('ID має бути числом від 1 до 100');
+        throw new Error('The ID must be a number between 1 and 100');
       }
 
       const post = await getPost(postId);
@@ -38,15 +38,15 @@
       if (post) {
         postContainer.innerHTML = `
           <h2>${post.title}</h2>
-          <p>ID користувача: ${post.userId}</p>
-          <p>Завершено: ${post.completed ? 'Так' : 'Ні'}</p>
+          <h4>User ID: ${post.userId}</h4>
+          <p>${post.body}</p>
         `;
         const commentButton = document.createElement('button');
-        commentButton.textContent = 'Отримати коментарі';
+        commentButton.textContent = 'Get a comments';
         commentButton.addEventListener('click', () => getComments(post.id));
         postContainer.appendChild(commentButton);
       } else {
-        throw new Error('Пост з таким ідентифікатором не знайдено.');
+        throw new Error('No post with this ID was found.');
       }
     } catch (error) {
       postContainer.innerHTML = `<p>${error.message}</p>`;
