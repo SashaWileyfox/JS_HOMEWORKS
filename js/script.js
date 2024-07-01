@@ -1,6 +1,7 @@
 (function () {
   const buttonGetPost = document.body.querySelector('[data-button-get-post]');
   const postContainer = document.body.querySelector('[data-post-container]');
+  let commentButton;
   let commentButtonInitialized = false;
 
   const getComments = async (postId) => {
@@ -25,7 +26,28 @@
     }
   };
 
-  const handleCommentButtonClick = async () => {
+  const renderPost = (post) => {
+    postContainer.innerHTML = `
+      <div class="card-body">
+        <h2>${post.title}</h2>
+        <h5>User ID: ${post.userId}</h5>
+        <p>${post.body}</p>
+        <button class="btn btn-primary" data-comments-button>Get Comments</button>
+      </div>
+    `;
+    postContainer.classList.add('card');
+    commentButton = document.querySelector('[data-comments-button]');
+    if (commentButton && !commentButtonInitialized) {
+      commentButton.addEventListener('click', () => getComments(post.id));
+      commentButtonInitialized = true;
+    }
+  };
+
+  const handleError = (error) => {
+    postContainer.innerHTML = `<p>${error.message}</p>`;
+  };
+
+  const handlePostDisplayButtonClick = async () => {
     const inputValue = document.getElementById('input-id').value;
     const postId = Number(inputValue);
 
@@ -36,31 +58,14 @@
 
       const post = await getPost(postId);
       if (post) {
-        postContainer.innerHTML = `
-          <div class="card-body">
-            <h2>${post.title}</h2>
-            <h5>User ID: ${post.userId}</h5>
-            <p>${post.body}</p>
-            <button class="btn btn-primary" data-comments-button>Get Comments</button>
-          </div>
-        `;
-        postContainer.classList.add('card');
-
-        if (!commentButtonInitialized) {
-          const commentButton = document.querySelector('[data-comments-button]');
-
-          if (commentButton) {
-            commentButton.addEventListener('click', () => getComments(post.id));
-            commentButtonInitialized = true;
-          }
-        }
+        renderPost(post);
       } else {
         throw new Error('No post with this ID was found.');
       }
     } catch (error) {
-      postContainer.innerHTML = `<p>${error.message}</p>`;
+      handleError(error);
     }
   };
 
-  buttonGetPost.addEventListener('click', handleCommentButtonClick);
+  buttonGetPost.addEventListener('click', handlePostDisplayButtonClick);
 })();
