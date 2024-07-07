@@ -36,6 +36,8 @@
     postContainer.classList.add('card');
   };
 
+  const renderComents = ()
+
   const handleError = (error) => {
     postContainer.innerHTML = `<p>${error.message}</p>`;
   };
